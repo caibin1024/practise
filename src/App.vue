@@ -13,7 +13,7 @@
                 <span>一级菜单</span>
               </template>
               <!-- 选项 -->
-              <el-menu-item index="/flex">flex</el-menu-item>
+              <el-menu-item index="/flex">flex骰子</el-menu-item>
             </el-submenu>
             <el-submenu index="2">
               <template #title>
