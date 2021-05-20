@@ -2,6 +2,7 @@ import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
 import store from './store'
+import './assets/css/global.css'
 import {ElButton,ElContainer,ElAside,ElHeader,ElMain,ElMenu,ElMenuItem,ElSubmenu} from 'element-plus';
 
 const app= createApp(App)

@@ -2,20 +2,25 @@
   <div>
     <el-container>
       <!-- 头部 -->
-      <el-header>
-        <h1></h1>
-      </el-header>
-      <el-container>
+      <el-header height="80px"></el-header>
+      <el-container >
         <!-- 侧边导航栏 -->
-        <el-aside>
-          <el-menu router unique-opened>
+        <el-aside width="250px">
+          <el-menu router unique-opened >
             <!-- 一级菜单 -->
-            <el-submenu>
+            <el-submenu index="1">
               <template #title>
                 <span>一级菜单</span>
               </template>
               <!-- 选项 -->
-              <el-menu-item index='/flex' >选项</el-menu-item>
+              <el-menu-item index="/flex">flex</el-menu-item>
+            </el-submenu>
+            <el-submenu index="2">
+              <template #title>
+                <span>一级菜单</span>
+              </template>
+              <!-- 选项 -->
+              <el-menu-item index="/welcome">welcome</el-menu-item>
             </el-submenu>
           </el-menu>
         </el-aside>
@@ -32,3 +37,8 @@
 export default {};
 </script>
 
+<style scoped>
+.el-header {
+  border-bottom: 1px solid #eee;
+}
+</style>
