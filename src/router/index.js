@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 
 const flex = () => import('../view/Flex')
 const welcome = () => import('../view/Welcome')
+const layout = () => import('../view/Layout')
 const routes = [
   {
     path: '/welcome',
@@ -18,6 +19,10 @@ const routes = [
   {
     path: '/',
     redirect: '/welcome'
+  },{
+    path:'/layout',
+    name:'layout',
+    component:layout
   }
 ]
 

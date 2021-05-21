@@ -10,10 +10,11 @@
             <!-- 一级菜单 -->
             <el-submenu index="1">
               <template #title>
-                <span>一级菜单</span>
+                <span>布局</span>
               </template>
               <!-- 选项 -->
               <el-menu-item index="/flex">flex骰子</el-menu-item>
+              <el-menu-item index="/layout">layout骰子</el-menu-item>
             </el-submenu>
             <el-submenu index="2">
               <template #title>
