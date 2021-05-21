@@ -20,7 +20,7 @@
               <span>一级菜单</span>
             </template>
             <!-- 选项 -->
-            <el-menu-item index="/welcome">welcome</el-menu-item>
+            <el-menu-item index="/ideaOfCircle">ideaOfCircle</el-menu-item>
           </el-submenu>
         </el-menu>
       </el-aside>
