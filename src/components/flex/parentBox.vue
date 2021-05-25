@@ -7,12 +7,12 @@
 
 
 <script>
-import childBox from "./ChildBox";
+import childBox from "./childBox";
 export default {
   data() {
     return {
-      styelTest:{
-        width:'100px'
+      styelTest: {
+        width: "100px",
       },
       styleObject: {
         flexDirection: "",
@@ -46,23 +46,23 @@ export default {
     childNum: Number,
   },
   components: { childBox },
-  methods:{
-    init(){
-      this.styleObject.flexDirection=this.flexDirection[0]
-        this.styleObject.flexWrap=this.flexWrap[0]
-        this.styleObject.justifyContent=this.justifyContent[0]
-      this.styleObject.alignItem=this.alignItem[0]
-     this.styleObject.alignContent=this.alignContent[0]
-    }
+  methods: {
+    init() {
+      this.styleObject.flexDirection = this.flexDirection[0];
+      this.styleObject.flexWrap = this.flexWrap[0];
+      this.styleObject.justifyContent = this.justifyContent[0];
+      this.styleObject.alignItem = this.alignItem[0];
+      this.styleObject.alignContent = this.alignContent[0];
+    },
   },
-  created(){
-    this.init()
-  }
+  created() {
+    this.init();
+  },
 };
 </script>
 <style scoped>
 .parentBox {
-  width: 60PX;
+  width: 60px;
   height: 60px;
   border: 1px solid #000;
   border-radius: 5px;
