@@ -1,28 +1,34 @@
 <template>
-<h1>{{diameter}}</h1>
-  <div id="circle" @click="isShow=!isShow">
-    <my-circle v-if="isShow"></my-circle>
-    <my-circle v-if="isShow"></my-circle>
+  <div>
+    <div id="parentCircle" v-if="!isShow" :style="styleObj" @click="isShow=!isShow"></div>
+    <div id="childCircle" v-else>
+      <my-circle :diameter="diameter/2"></my-circle>
+      <my-circle :diameter="diameter/2"></my-circle>
+      <my-circle :diameter="diameter/2"></my-circle>
+      <my-circle :diameter="diameter/2"></my-circle>
+    </div>
   </div>
 </template>
 
 <script>
 export default {
-  props: ['diameter'],
+  props: ["diameter"],
   name: "my-circle",
   data() {
     return {
       isShow: false,
+      styleObj:{
+        width:this.diameter+"px",
+        height:this.diameter+"px"
+      }
     };
   },
 };
 </script>
 
 <style scoped>
-#circle {
-  width: 500px;
-  height: 500px;
-  background-color: rgba(0, 0, 0, 0);
+#parentCircle {
+  background-color: rgba(0, 0, 0, 1);
   border-radius: 50%;
 }
 </style>

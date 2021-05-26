@@ -1,6 +1,6 @@
 <template>
   <div>
-    <my-circle :diameter="1000"></my-circle>
+    <my-circle :diameter="800"></my-circle>
   </div>
 </template>
 
