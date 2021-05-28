@@ -5,7 +5,7 @@
 
 
 <script>
-import parentBox from "../components/flex/parentBox"
+import parentBox from "../components/flex/ParentBox"
 export default {
   data(){
     return{

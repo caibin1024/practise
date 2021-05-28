@@ -2,8 +2,13 @@
   <div>
     <canvas ref="canvas" :width="diameter" :height="diameter"></canvas>
 
-    <my-circle :diameter="diameter" id="mycircle" :left="0" :top="0"></my-circle>
-    <img src="../assets/test.jpg" ref="lol" />
+    <my-circle
+      :diameter="diameter"
+      id="mycircle"
+      :left="0"
+      :top="0"
+    ></my-circle>
+    <img src="../assets/test.jpg" ref="lol" @load="initCtx" />
   </div>
 </template>
 
@@ -24,9 +29,6 @@ export default {
       this.ctx.drawImage(this.$refs.lol, 0, 0);
       this.$store.commit("setCtx", this.ctx);
     },
-  },
-  mounted() {
-    this.initCtx();
   },
 };
 </script>

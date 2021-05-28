@@ -7,7 +7,7 @@
 
 
 <script>
-import childBox from "./childBox";
+import childBox from "./ChildBox";
 export default {
   data() {
     return {
