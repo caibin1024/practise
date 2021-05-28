@@ -4,12 +4,12 @@
     <div id="childCircle" v-else>
       <div class="flex-row">
         <div class="flex-col">
-          <my-circle :diameter="diameter/2"></my-circle>
-          <my-circle :diameter="diameter/2"></my-circle>
+          <my-circle :diameter="diameter/2" :left="left" :top="top"></my-circle>
+          <my-circle :diameter="diameter/2" :left="left+diameter/2" :top="top"></my-circle>
         </div>
         <div class="flex-col">
-          <my-circle :diameter="diameter/2"></my-circle>
-          <my-circle :diameter="diameter/2"></my-circle>
+          <my-circle :diameter="diameter/2" :left="left" :top="top+diameter/2"></my-circle>
+          <my-circle :diameter="diameter/2" :left="left+diameter/2" :top="top+diameter/2"></my-circle>
         </div>
       </div>
     </div>
@@ -18,7 +18,7 @@
 
 <script>
 export default {
-  props: ["diameter"],
+  props: ["diameter", "left", "top"],
   name: "my-circle",
   data() {
     return {
@@ -26,25 +26,27 @@ export default {
       styleObj: {
         width: this.diameter + "px",
         height: this.diameter + "px",
-        backgroundColor: "green",
+        backgroundColor: "#eee",
       },
     };
   },
   methods: {
     division() {
-      if (this.diameter > 15) {
+      if (this.diameter > 10) {
         this.isShow = !this.isShow;
       }
-      this.getColor(event);
     },
-    getColor(event) {
+    getColor() {
       const color = this.$store.getters.getColorByIndex([
-        event.screenX,
-        event.screenX,
+        this.top,
+        this.left,
       ]);
       this.styleObj.backgroundColor = `rgba(${color[0]},${color[1]},${color[2]},${color[3]})`;
     },
   },
+  mounted(){
+    this.getColor()
+  }
 };
 </script>
 

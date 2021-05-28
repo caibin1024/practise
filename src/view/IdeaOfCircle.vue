@@ -1,8 +1,8 @@
 <template>
   <div>
-    <canvas ref="canvas" :width="diameter" :height="diameter" ></canvas>
-   
-    <my-circle :diameter="diameter" ></my-circle>
+    <canvas ref="canvas" :width="diameter" :height="diameter"></canvas>
+
+    <my-circle :diameter="diameter" id="mycircle" :left="0" :top="0"></my-circle>
     <img src="../assets/test.jpg" ref="lol" />
   </div>
 </template>
@@ -20,18 +20,14 @@ export default {
   components: { myCircle },
   methods: {
     initCtx() {
-      this.ctx = this.$refs.canvas.getContext("2d")
+      this.ctx = this.$refs.canvas.getContext("2d");
       this.ctx.drawImage(this.$refs.lol, 0, 0);
-      console.log(this.ctx)
-      console.log(this.ctx.getImageData(100, 100, 1, 1).data);
-      this.$store.commit('setCtx', this.ctx)
-      console.log(this.$store.state.ctx)
+      this.$store.commit("setCtx", this.ctx);
     },
   },
-  mounted(){
-   this.initCtx()
-  }
-
+  mounted() {
+    this.initCtx();
+  },
 };
 </script>
 
@@ -42,7 +38,8 @@ export default {
   background-color: green;
   border-radius: 5px;
 }
-img,canvas {
+img,
+canvas {
   display: none;
 }
 </style>
