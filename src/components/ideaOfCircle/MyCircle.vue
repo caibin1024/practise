@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div id="parentCircle" v-if="!isShow" :style="styleObj" @mouseover="division"></div>
+    <div id="parentCircle" v-if="!isShow" :style="styleObj" @mouseover="division()"></div>
     <div id="childCircle" v-else>
       <div class="flex-row">
         <div class="flex-col">
@@ -26,29 +26,37 @@ export default {
       styleObj: {
         width: this.diameter + "px",
         height: this.diameter + "px",
+        backgroundColor: "green",
       },
     };
   },
-  methods:{
-    division(){
-      if(this.diameter>15){
-        this.isShow=!this.isShow
+  methods: {
+    division() {
+      if (this.diameter > 15) {
+        this.isShow = !this.isShow;
       }
-    }
-  }
+      this.getColor(event);
+    },
+    getColor(event) {
+      const color = this.$store.getters.getColorByIndex([
+        event.screenX,
+        event.screenX,
+      ]);
+      this.styleObj.backgroundColor = `rgba(${color[0]},${color[1]},${color[2]},${color[3]})`;
+    },
+  },
 };
 </script>
 
 <style scoped>
 #parentCircle {
-  background-color: rgba(0, 0, 0, 1);
   border-radius: 50%;
 }
-.flex-row{
+.flex-row {
   display: flex;
   flex-direction: row;
 }
-.flex-col{
+.flex-col {
   display: flex;
   flex-direction: column;
 }

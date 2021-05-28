@@ -1,7 +1,9 @@
 <template>
   <div>
-    <my-circle :diameter="diameter"></my-circle>
-    <img src="../assets/test.jpg" id="img" />
+    <canvas ref="canvas" :width="diameter" :height="diameter" ></canvas>
+   
+    <my-circle :diameter="diameter" ></my-circle>
+    <img src="../assets/test.jpg" ref="lol" />
   </div>
 </template>
 
@@ -17,20 +19,19 @@ export default {
   },
   components: { myCircle },
   methods: {
-    setCtx() {
-      const img = document.getElementById("img");
-      const canvas = document.createElement("canvas");
-      canvas.width = this.diameter;
-      canvas.height = this.diameter;
-      this.ctx = canvas.getContext("2d");
-      this.ctx.drawImage(img, 0, 0);
-
-      console.log | this.ctx;
+    initCtx() {
+      this.ctx = this.$refs.canvas.getContext("2d")
+      this.ctx.drawImage(this.$refs.lol, 0, 0);
+      console.log(this.ctx)
+      console.log(this.ctx.getImageData(100, 100, 1, 1).data);
+      this.$store.commit('setCtx', this.ctx)
+      console.log(this.$store.state.ctx)
     },
   },
-  mounted() {
-    this.setCtx();
-  },
+  mounted(){
+   this.initCtx()
+  }
+
 };
 </script>
 
@@ -41,7 +42,7 @@ export default {
   background-color: green;
   border-radius: 5px;
 }
-img {
+img,canvas {
   display: none;
 }
 </style>
