@@ -5,8 +5,8 @@
     <my-circle
       :diameter="diameter"
       id="mycircle"
-      :left="0"
-      :top="0"
+      :left="left"
+      :top="top"
     ></my-circle>
     <img src="../assets/test.jpg" ref="lol" @load="initCtx" />
   </div>
@@ -18,6 +18,8 @@ import myCircle from "../components/ideaOfCircle/MyCircle";
 export default {
   data() {
     return {
+      left:0,
+      top:0,
       diameter: 800,
       ctx: null,
     };

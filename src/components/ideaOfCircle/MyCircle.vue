@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div id="parentCircle" v-if="!isShow" :style="styleObj" @mouseover="division()"></div>
+    <div id="parentCircle" v-if="!isShow" :style="styleObj" @mouseover="division" ></div>
     <div id="childCircle" v-else>
       <div class="flex-row">
         <div class="flex-col">
@@ -27,6 +27,7 @@ export default {
         width: this.diameter + "px",
         height: this.diameter + "px",
         backgroundColor: "#eee",
+        borderRadius:"10%"
       },
     };
   },
@@ -51,9 +52,7 @@ export default {
 </script>
 
 <style scoped>
-#parentCircle {
-  border-radius: 50%;
-}
+
 .flex-row {
   display: flex;
   flex-direction: row;
